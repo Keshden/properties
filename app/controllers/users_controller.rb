@@ -4,23 +4,31 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:destroy]
 
   def index
-
+    User.all
   end
 
   def new
-
+    @user = User.new
   end
 
   def create
-
+    @user = User.new(user_params)
+    if @user.save
+      flash[:success] = "Account successfully created"
+      redirect_to user_path(@user)
+    else
+      render 'new'
   end
 
   def edit
-
   end
 
   def update
-
+    if @user.update(user_params)
+      flash[:success] = "Account updated successfully"
+      redirect_to user_path(@user)
+    else
+      render 'edit'
   end
 
   def show
@@ -28,7 +36,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
+    @user.destroy
+    flash[:danger] = "User account has been successfully deleted"
+    redirect_to users_path
   end
 
   private
