@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129173052) do
+ActiveRecord::Schema.define(version: 20170129175535) do
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20170129173052) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
     t.string "adminClearanceLevel"
+    t.string "password_digest"
   end
 
 end
