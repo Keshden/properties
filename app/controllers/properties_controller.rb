@@ -1,12 +1,12 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:edit, :update, :show, :destroy]
   before_action :require_admin_lvl_2, only: [:new, :create, :destroy]
-  before_action :require_admin_lvl_1, only: [:edit, :update]
+  #before_action :require_admin_lvl_1, only: [:edit, :update]
 
   def index
-
+    @property = Property.all
   end
-  
+
   def new
     @property = Property.new
   end
@@ -17,7 +17,8 @@ class PropertiesController < ApplicationController
       flash[:success] = "Property successfully created"
       redirect_to property_path(@property)
     else
-      redirect_to root_path
+      render 'new'
+    end
   end
 
   def edit
@@ -25,7 +26,12 @@ class PropertiesController < ApplicationController
   end
 
   def update
-
+    if @property.update(property_params)
+      flash[:success] = "Property successfully updated"
+      redirect_to property_path(@property)
+    else
+      render 'edit'
+    end
   end
 
   def show
@@ -40,6 +46,10 @@ class PropertiesController < ApplicationController
     private
     def property_params
       params.require(:property).permit(:name, acres, :address, :cost)
+    end
+
+    def set_property
+      @property = Property.find(params[:id])
     end
 
 end
