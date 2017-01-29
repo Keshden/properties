@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'about', to: 'welcome#about'
 
   # Users routes
-  get 'signup', to: 'users#new'
+  get 'signup',  to: 'users#new'
   resources :users, except: [:new]
 
   #Properties routes
