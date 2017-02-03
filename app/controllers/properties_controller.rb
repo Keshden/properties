@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:edit, :update, :show, :destroy]
-  before_action :require_admin_lvl_2, only: [:new, :create, :destroy]
+  #before_action :require_admin_lvl_2, only: [:new, :create, :destroy]
   #before_action :require_admin_lvl_1, only: [:edit, :update]
 
   def index
@@ -45,7 +45,7 @@ class PropertiesController < ApplicationController
 
     private
     def property_params
-      params.require(:property).permit(:name, acres, :address, :cost)
+      params.require(:property).permit(:name, :acres, :address, :cost, :sqFootage)
     end
 
     def set_property

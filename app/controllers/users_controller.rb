@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       flash[:danger] = "You need to be logged in to perform those actions"
       redirect_to root_path
     elsif current_user != @user && !current_user.admin?
-      flash [:danger] = "You can only edit your own account"
+      flash[:danger] = "You can only edit your own account"
       redirect_to root_path
     end
   end

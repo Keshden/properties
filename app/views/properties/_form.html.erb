@@ -45,12 +45,12 @@
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <%= f.submit(@property.new_record? ? "Create Property" : "Update Property details", class: "btn btn-lg btn-default") %>
+          <%= f.submit(@property.new_record? ? "Create Property" : "Update Property details", class: "btn btn-lg btn-primary") %>
         </div>
       </div>
     <% end %>
   </div>
   <div class="col-xs-4 col-xs-offset-4">
-    [ <%= link_to "Cancel and return to properties portfolio", user_path(@user) %> ]
+    [ <%= link_to "Cancel and return to properties portfolio", root_path %> ]
   </div>
 </div>
