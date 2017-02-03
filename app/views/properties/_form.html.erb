@@ -1,0 +1,56 @@
+<%= render 'shared/errors', obj: @property %>
+
+<div class = "row">
+  <div class="col-xs-12">
+    <%= form_for(@property, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :name %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter property name", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :cost %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_field :cost, class: "form-control", placeholder: "Enter Property cost", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :address %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_area :address, class: "form-control", placeholder: "Enter address", autofocus: true %>
+        </div>
+      </div>
+      <div class = "form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :acres %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_field :acres, class: "form-control", placeholder: "Enter how many acres", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2">
+          <%= f.label :sqFootage %>
+        </div>
+        <div class="col-sm-6">
+          <%= f.text_field :sqFootage, class: "form-control", placeholder: "Enter the square footage of the house", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <%= f.submit(@property.new_record? ? "Create Property" : "Update Property details", class: "btn btn-lg btn-default") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-xs-4 col-xs-offset-4">
+    [ <%= link_to "Cancel and return to properties portfolio", user_path(@user) %> ]
+  </div>
+</div>

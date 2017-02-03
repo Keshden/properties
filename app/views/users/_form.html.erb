@@ -32,10 +32,9 @@
           <%= f.submit(@user.new_record? ? "Sign up" : "Update Account", class: "btn btn-default btn-lg") %>
         </div>
       </div>
-      <% end %>
-    </div>
-    <div class="col-xs-4 col-xs-offst-4">
-      [ <%= link_to "Cancel update request and return to profile", user_path(@user) %> ]
-    </div>
+    <% end %>
+  </div>
+  <div class="col-xs-4 col-xs-offst-4">
+    [ <%= link_to "Cancel update request and return to profile", user_path(@user) %> ]
   </div>
 </div>
