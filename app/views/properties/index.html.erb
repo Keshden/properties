@@ -1,1 +1,14 @@
 <h1 align="center">Properties</h1>
+<div class="container">
+  <% @property.each do |property| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg ">
+          <div align="center">
+            <%= link_to property.name, property_path(property) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

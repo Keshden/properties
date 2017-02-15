@@ -1,1 +1,45 @@
-<h1 align="center">Properties</h1>
+<h1 align="center"><%= @property.name %></h1>
+<div class="body">
+  <div class="row">
+    <table>
+      <ul>
+        <th>Cost:   </th>
+      </ul>
+    </table>
+  </div>
+  <div class="row">
+    <ul>
+      <table>
+        <td><t<p align="center"><%= @property.cost %></p></td>
+      </table>
+    </ul>
+  </div>
+  <div class="row">
+    <table>
+      <ul>
+        <tr>Square Footage</tr>
+        <tr><%= @property.sqFootage %></tr>
+      </ul>
+    </table>
+  </div>
+  <div class="col">
+    <div class='row'>
+      <tr>Acres</tr>
+    </div>
+    <div class="row">
+      <tr><%= @property.acres %></tr>
+    </div>
+  </div>
+</div>
+<div class="table">
+  <table>
+    <div class="row">
+      <tr>Square Footage</tr>
+      <tr><%= @property.sqFootage %> Square Feet </tr>
+    </div>
+    <div class="row">
+      <tr>Acres</tr>
+      <body align="center"><%= @property.acres %> Acres of land </body>
+    </div>
+  </table>
+</div>

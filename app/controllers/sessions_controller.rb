@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email.downcase])
-    if user && user.authenticate(params[:session][:password]) && user.authenticate(params[:session][:username])
+    user = User.find_by(email: params[:sessions][:email.downcase])
+    if user && user.authenticate(params[:sessions][:password])
       session[:user_id] = user.id
       flash[:success] = "You have successfully logged in"
       redirect_to user_path(user)
