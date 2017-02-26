@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215020549) do
+ActiveRecord::Schema.define(version: 20170225171317) do
 
   create_table "properties", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170215020549) do
     t.string "title"
     t.string "description"
     t.string "priority",    default: "low"
+    t.string "status",      default: "ToDo"
   end
 
   create_table "users", force: :cascade do |t|

@@ -4,11 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email.downcase])
-    if user && user.authenticate(params[:session][:password]) && user.authenticate(params[:session][:username])
-      session[:user_id] = user.id
-      flash[:success] = "You have successfully logged in"
-      redirect_to user_path(user)
+    user = User.find_by(email: params[:sessions][:email.downcase])
+    if user && user.authenticate(params[:sessions][:password])
+      #if user.authenticate(params[:sessions][:username])
+        session[:user_id] = user.id
+        flash[:success] = "You have successfully logged in"
+        redirect_to user_path(user)
+      #end
     else
       flash.now[:danger] = "There was something wrong with log in information"
       render 'new'
@@ -20,5 +22,4 @@ class SessionsController < ApplicationController
     flash[:success] = "You have logged out"
     redirect_to root_path
   end
-
 end

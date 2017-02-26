@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 
   before_action :set_task, only: [:edit, :update, :show, :destroy]
+  before_action :set_property
 
   def new
     @task = Task.new
@@ -17,11 +18,15 @@ class TasksController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
+    if @task.update(task_params)
+      flash[:success] = "Task successfully updated"
+      redirect_to property_path(@property)
+    else
+      render 'edit'
+    end
   end
 
   def show
@@ -47,5 +52,8 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def set_property
+    @property = Property.current
+  end
 
 end
